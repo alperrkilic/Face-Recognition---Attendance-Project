@@ -47,12 +47,12 @@ def markAttendance(name):
         myDataList = f.readlines()
         nameList = []
         for line in myDataList:
-            entry = line.split(',')
+            entry = line.split(';')
             nameList.append(entry[0])
         if name not in nameList:
             now = datetime.now()
             dtString = now.strftime('%H:%M:%S')
-            f.writelines(f'\n{name},{dtString}')
+            f.write(f'{name};{dtString}\n')
 
 
 encodeListKnown = findEncodings(images)
